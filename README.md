@@ -13,3 +13,9 @@ the second guest, and what is localhost:5672 is for?
 - `guest`(second): the password
 - `localhost`: signifies the hostname or IP address of the machine on which the communication is to take place
 - `5672`: the port number where the communication will occur
+
+## Simulation slow subscriber
+
+The total number of queues reached approximately 20. This was because the `cargo run` command was executed five times, which ideally should have been carried out over 20 seconds (5 messages per run x 5 runs). However, since the `cargo run` was performed sequentially, there was a delay, resulting in only a maximum of 20 messages being queued at any one time.
+
+<img width="1512" alt="Screenshot 2024-04-23 at 01 18 57" src="https://github.com/rachelzn/tutorial8-subscriber/assets/92985397/d6b4e1dc-9376-4775-bf13-84e26fa73f97">
